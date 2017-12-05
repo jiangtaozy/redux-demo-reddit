@@ -5,7 +5,7 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT'
 export const INVALIDATE_SUBREDDIT = 'INVALIDATE_SUBREDDIT'
 
-export function selectSubreddit(subreddir) {
+export function selectSubreddit(subreddit) {
   return {
     type: SELECT_SUBREDDIT,
     subreddit
@@ -60,7 +60,7 @@ function shouldFetchPosts(state, subreddit) {
   if (!posts) {
     return true
   } else if (posts.isFetching) {
-    return true
+    return false
   } else {
     return posts.didInvalidate
   }
